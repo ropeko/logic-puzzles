@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Create Puzzle
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label>Puzzle type:</ion-label>
+            <ion-select interface="popover" (ionChange)="onChangePuzzleType($event)">
+                <ion-select-option [value]="PuzzleType.fillomino">Fillomino</ion-select-option>
+                <ion-select-option [value]="PuzzleType.sudoku">Sudoku</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Rows:</ion-label>
+            <ion-input type="number" min="1" max="99" [value]="grid.rows" (ionChange)="onChangeRows($event)"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Columns:</ion-label>
+            <ion-input type="number" min="1" max="99" [value]="grid.columns" (ionChange)="onChangeColumns($event)"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div text-center>
+        <ion-button (click)="onClick()">Generate empty puzzle</ion-button>
+    </div>
+</ion-content>
